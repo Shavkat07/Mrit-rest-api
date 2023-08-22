@@ -11,3 +11,10 @@ from portfolio.serializers import PortfolioSerializer
 class PortfolioView(ReadOnlyModelViewSet):
     queryset = Portfolio.objects.all()
     serializer_class = PortfolioSerializer
+
+    def retrieve(self, request, *args, **kwargs):
+        response = super().retrieve(request, *args, **kwargs)
+        obj = self.get_object()
+        obj.watches += 1
+        obj.save()
+        return response
