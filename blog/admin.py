@@ -1,6 +1,18 @@
 from django.contrib import admin
 
 from blog.models import Blog, BlogCategory
+from parler.admin import TranslatableAdmin
 
-# Register your models here.
-admin.site.register([Blog, BlogCategory])
+
+class BlogAdmin(TranslatableAdmin):
+    list_display = ('id', 'title', 'text')
+    list_display_links = ('id', 'title', 'text')
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'text', 'category', "image"),
+        }),
+    )
+
+
+admin.site.register(Blog, BlogAdmin)
+admin.site.register(BlogCategory)
