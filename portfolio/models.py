@@ -24,3 +24,11 @@ class Portfolio(TranslatableModel):
 class PortfolioImage(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.PROTECT)
     image = models.ImageField()
+
+
+class PostLike(models.Model):
+    post_id = models.PositiveIntegerField()
+    ip_address = models.GenericIPAddressField()
+
+    def __str__(self):
+        return f"Like on Post {self.post_id} by {self.ip_address}"

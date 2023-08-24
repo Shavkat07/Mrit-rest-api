@@ -1,10 +1,11 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ReadOnlyModelViewSet
-
-from portfolio.models import Portfolio
+from rest_framework.views import APIView
+from portfolio.models import Portfolio, PostLike
 from portfolio.serializers import PortfolioSerializer
-
-
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from django.contrib.sessions.models import Session
+from rest_framework import status
 # Create your views here.
 
 
@@ -18,3 +19,23 @@ class PortfolioView(ReadOnlyModelViewSet):
         obj.watches += 1
         obj.save()
         return response
+
+    @action(detail=True, methods=['GET'])
+    def like(self, request, pk=None):
+        ip_add = request.META.get('REMOTE_ADDR')
+        print(ip_add)
+        portfolio_obj = self.get_object()
+        obj = PostLike.objects.filter(ip_address=ip_add)
+        if len(obj)==0:
+            PostLike.objects.create(
+                post_id=portfolio_obj.id,
+                ip_address=ip_add
+            )
+            portfolio_obj.like += 1
+            portfolio_obj.save()
+            return Response(status=status.HTTP_201_CREATED)
+        obj.delete()
+        portfolio_obj.like -= 1
+        portfolio_obj.save()
+        return Response(status=status.HTTP_200_OK)
+

@@ -5,7 +5,7 @@ from portfolio.views import PortfolioView
 
 router = DefaultRouter()
 
-router.register('portfolio', PortfolioView)
+router.register('portfolio-list', PortfolioView)
 
 urlpatterns = [
     path('v1/', include(router.urls))

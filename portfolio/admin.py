@@ -1,7 +1,7 @@
 from django.contrib import admin
 from portfolio.models import Portfolio, PortfolioCategory, PortfolioImage
 from parler.admin import TranslatableAdmin
-
+from django.contrib.sessions.models import Session
 
 class PortfolioAdmin(TranslatableAdmin):
     list_display = ('id', 'title', 'category', 'watches', 'like')
@@ -15,4 +15,4 @@ class PortfolioAdmin(TranslatableAdmin):
 
 
 admin.site.register(Portfolio, PortfolioAdmin)
-admin.site.register([PortfolioCategory, PortfolioImage])
+admin.site.register([PortfolioCategory, PortfolioImage, Session])
