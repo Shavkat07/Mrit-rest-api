@@ -1,12 +1,9 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
-from rest_framework.views import APIView
 from portfolio.models import Portfolio, PostLike
 from portfolio.serializers import PortfolioSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
-from django.contrib.sessions.models import Session
 from rest_framework import status
-# Create your views here.
 
 
 class PortfolioView(ReadOnlyModelViewSet):

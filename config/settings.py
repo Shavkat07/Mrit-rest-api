@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
-from django.utils.translation import gettext_lazy as _
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -9,6 +11,7 @@ SECRET_KEY = 'django-insecure-5!xi@(f04ulmu%^wn(y4l!m2v))hc*9z=_-vtb4zxajo_32xxj
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
 
 
 # Application definition
@@ -66,9 +69,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env('DB_NAME'),
+        "USER": env('DB_USER'),
+        "PASSWORD": env('DB_PASS'),
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
