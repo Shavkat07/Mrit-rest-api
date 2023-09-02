@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-5!xi@(f04ulmu%^wn(y4l!m2v))hc*9z=_-vtb4zxajo_32xxj
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["api.mrit.uz", "localhost", '165.22.10.134']
 
 
 
@@ -72,11 +72,14 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mydatabase",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env('DB_NAME'),
+        "USER": env('DB_USER'),
+        "PASSWORD": env('DB_PASS'),
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
