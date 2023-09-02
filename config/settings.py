@@ -10,12 +10,13 @@ SECRET_KEY = 'django-insecure-5!xi@(f04ulmu%^wn(y4l!m2v))hc*9z=_-vtb4zxajo_32xxj
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["api.mrit.uz", "localhost", '165.22.10.134']
 
 
 
-# Application definition
+# Application 
 
+# Application 
 INSTALLED_APPS = [
     'jazzmin',
     'django.contrib.admin',
@@ -74,8 +75,8 @@ DATABASES = {
         "NAME": env('DB_NAME'),
         "USER": env('DB_USER'),
         "PASSWORD": env('DB_PASS'),
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
+        "HOST": "localhost",
+        "PORT": "",
     }
 }
 
@@ -99,6 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -117,12 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
-# STATIC_ROOT = 'static'
-STATIC_URL = 'static/'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = '/var/www/MRIT_WEB/static/'
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/var/www/MRIT_WEB/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
