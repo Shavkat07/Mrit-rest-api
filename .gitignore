@@ -31,17 +31,18 @@ media
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+employe/migrations
+portfolio/migrations
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
-
+mydatabase
 # File-based project format
 *.iws
 
 # IntelliJ
 out/
-
+config/settings.py
 # JIRA plugin
 atlassian-ide-plugin.xml
 
