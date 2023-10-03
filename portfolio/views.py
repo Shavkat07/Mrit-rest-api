@@ -19,7 +19,7 @@ class PortfolioView(ReadOnlyModelViewSet):
 
     @action(detail=True, methods=['GET'])
     def like(self, request, pk=None):
-        ip_add = request.META.get('REMOTE_ADDR')
+        ip_add = request.META.get('HTTP_X_REAL_IP')
         print(ip_add)
         portfolio_obj = self.get_object()
         obj = PostLike.objects.filter(ip_address=ip_add)
