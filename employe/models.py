@@ -12,7 +12,7 @@ class TeamMember(TranslatableModel):
     telegram = models.URLField(blank=True, null=True)
     instagram = models.URLField(blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
-#    github = models.URLField(blank=True, null=True)
+    github = models.URLField(blank=True, null=True)
 
     # def __str__(self):
     #     return self.name
