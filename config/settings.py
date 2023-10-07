@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import environ
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -12,9 +13,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["api.mrit.uz", "localhost", '165.22.10.134']
 
-
-
-# Application 
+# Application
 
 # Application 
 INSTALLED_APPS = [
@@ -25,13 +24,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #global
+    # global
     "corsheaders",
     'drf_yasg',
     "ckeditor",
     'parler',
     'rest_framework',
-    #local
+    # local
     'blog',
     'employe',
     'portfolio',
@@ -68,9 +67,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',   # Ozgartirish estan chiqmasin
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 DATABASES = {
     "default": {
@@ -101,8 +106,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -116,18 +119,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
-# STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATICFILES_DIRS = [BASE_DIR / 'static']  # Ozgartirish estan chiqmasin
+
 STATIC_ROOT = '/var/www/MRIT_WEB/static/'
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/var/www/MRIT_WEB/media/'
-
+# MEDIA_ROOT = BASE_DIR / 'medias'  # Ozgartirish estan chiqmasin
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -154,7 +157,7 @@ PARLER_LANGUAGES = {
     ),
     'default': {
         'fallbacks': ['en'],
-        'hide_untranslated': False,   # Default
+        'hide_untranslated': False,  # Default
     }
 }
 

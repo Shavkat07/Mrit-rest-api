@@ -20,6 +20,7 @@ class PortfolioSerializer(TranslatableModelSerializer):
     category = PortfolioCategorySerializer()
     images = PortfolioImageSerializer(source='portfolioimage_set', many=True)
     translations = TranslatedFieldsField(shared_model=Portfolio)
+
     class Meta:
         model = Portfolio
         fields = ('id', 'category', 'title', 'image', 'link',

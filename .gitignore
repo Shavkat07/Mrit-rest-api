@@ -5,7 +5,7 @@
 __pycache__
 db.sqlite3
 media
-
+/.idea
 # Backup files #
 *.bak
 
@@ -39,7 +39,7 @@ portfolio/migrations
 mydatabase
 # File-based project format
 *.iws
-
+/medias
 # IntelliJ
 out/
 config/settings.py
@@ -98,7 +98,7 @@ celerybeat-schedule.*
 *.sage.py
 
 # Environments
-.env
+config/.env
 .venv
 env/
 venv/

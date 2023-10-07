@@ -10,7 +10,7 @@ class TeamMemberAdmin(TranslatableAdmin):
     fieldsets = (
         (None, {
             'fields': ('name', 'about', 'role', "image",
-                       "telegram", 'instagram', 'linkedin'),
+                       "telegram", 'instagram', 'linkedin', 'github'),
         }),
     )
 
