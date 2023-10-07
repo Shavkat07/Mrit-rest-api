@@ -5,9 +5,15 @@ from rest_framework import routers, serializers, viewsets
 from blog.models import Blog, BlogCategory
 
 
+class BlogCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogCategory
+        fields = ('id', 'name')
+
+
 class BlogSerializer(TranslatableModelSerializer):
     translations = TranslatedFieldsField(shared_model=Blog)
-
+    category = BlogCategorySerializer()
     class Meta:
         model = Blog
         fields = ('id', 'translations', 'category', 'image', 'created', "watches")
