@@ -26,6 +26,6 @@ class BlogView(ReadOnlyModelViewSet):
 
         blogs = Blog.objects.filter(category=blog_category)
 
-        serializer = BlogSerializer(blogs, many=True)
+        serializer = BlogSerializer(blogs, many=True, context={'request': request})
 
         return Response(serializer.data, status=status.HTTP_200_OK)

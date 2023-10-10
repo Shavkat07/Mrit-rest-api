@@ -14,6 +14,8 @@ class BlogCategorySerializer(serializers.ModelSerializer):
 class BlogSerializer(TranslatableModelSerializer):
     translations = TranslatedFieldsField(shared_model=Blog)
     category = BlogCategorySerializer()
+    image = serializers.ImageField()
+
     class Meta:
         model = Blog
         fields = ('id', 'translations', 'category', 'image', 'created', "watches")
