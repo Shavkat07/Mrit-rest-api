@@ -3,18 +3,19 @@ from django.utils.translation import gettext as _
 from parler.models import TranslatableModel, TranslatedFields
 
 
-class BlogCategory(models.Model):
-    name = models.CharField(max_length=70)
+class BlogCategory(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(_('Name'), max_length=70)
+    )
 
     def __str__(self):
         return self.name
 
 
 class Blog(TranslatableModel):
-
     translations = TranslatedFields(
-        title=models.CharField(_("Title"),max_length=120),
-        text=models.TextField(_("text"),max_length=5000)
+        title=models.CharField(_("Title"), max_length=120),
+        text=models.TextField(_("text"), max_length=5000)
     )
 
     category = models.ForeignKey(BlogCategory, on_delete=models.PROTECT)
