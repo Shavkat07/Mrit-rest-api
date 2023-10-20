@@ -14,5 +14,18 @@ class TeamMember(TranslatableModel):
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
 
-    # def __str__(self):
-    #     return self.name
+    def __str__(self):
+        return self.name
+
+
+class ContactPage(TranslatableModel):
+    translations = TranslatedFields(
+        desciption=models.CharField(max_length=350)
+    )
+    full_name = models.CharField(max_length=66)
+    email = models.EmailField()
+    telegram = models.URLField()
+    username = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.full_name

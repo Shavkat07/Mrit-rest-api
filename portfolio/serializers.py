@@ -4,10 +4,12 @@ from parler_rest.serializers import TranslatableModelSerializer
 from parler_rest.fields import TranslatedFieldsField
 
 
-class PortfolioCategorySerializer(serializers.ModelSerializer):
+class PortfolioCategorySerializer(TranslatableModelSerializer):
+    translations = TranslatedFieldsField(shared_model=PortfolioCategory)
+
     class Meta:
         model = PortfolioCategory
-        fields = ('id', 'name')
+        fields = ('id', 'translations')
 
 
 class PortfolioImageSerializer(serializers.ModelSerializer):

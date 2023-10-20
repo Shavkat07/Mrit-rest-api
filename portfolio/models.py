@@ -4,8 +4,13 @@ from django.utils.translation import gettext as _
 from parler.models import TranslatableModel, TranslatedFields
 
 
-class PortfolioCategory(models.Model):
-    name = models.CharField(max_length=70)
+class PortfolioCategory(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(_('Name'), max_length=70)
+    )
+
+    def __str__(self):
+        return self.name
 
 
 class Portfolio(TranslatableModel):

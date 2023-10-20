@@ -31,8 +31,8 @@ media
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-employe/migrations
-portfolio/migrations
+#employe/migrations
+#portfolio/migrations
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries

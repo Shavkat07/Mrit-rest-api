@@ -29,7 +29,7 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('blog/api/', include(('blog.urls', 'blog'), namespace='blog')),
-    path('employee/api/', include(('employe.urls', 'employe'), namespace='employe')),
+    path('employe/api/', include(('employe.urls', 'employe'), namespace='employe')),
     path('portfolio/api/', include(('portfolio.urls', 'portfolio'), namespace='portfolio'))
 )
 

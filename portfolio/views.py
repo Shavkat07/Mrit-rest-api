@@ -46,6 +46,6 @@ class PortfolioView(ReadOnlyModelViewSet):
 
         portfolios = Portfolio.objects.filter(category=category)
 
-        serializer = PortfolioSerializer(portfolios, many=True)
+        serializer = PortfolioSerializer(portfolios, many=True, context={'request': request})
 
         return Response(serializer.data, status=status.HTTP_200_OK)
